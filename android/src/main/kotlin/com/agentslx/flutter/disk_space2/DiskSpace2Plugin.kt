@@ -47,14 +47,14 @@ class DiskSpace2Plugin: FlutterPlugin, MethodCallHandler {
     val stat = StatFs(path)
 
     val bytesAvailable: Long = stat.blockSizeLong * stat.availableBlocksLong
-    return (bytesAvailable / (1024f * 1024f)).toDouble()
+    return bytesAvailable.toDouble()
   }
 
   private fun getTotalDiskSpaceForPath(path: String): Double {
     val stat = StatFs(path)
 
     val bytesAvailable: Long = stat.blockSizeLong * stat.blockCountLong
-    return (bytesAvailable / (1024f * 1024f)).toDouble()
+    return bytesAvailable.toDouble()
   }
 
   @RequiresApi(Build.VERSION_CODES.R)
@@ -71,9 +71,9 @@ class DiskSpace2Plugin: FlutterPlugin, MethodCallHandler {
       for (dir in dirs) {
         val dirStat = JSONObject()
         val bytesAvailable: Long = stat.blockSizeLong * stat.availableBlocksLong
-        dirStat.put("free", (bytesAvailable / (1024f * 1024f)).toDouble())
+        dirStat.put("free", bytesAvailable.toDouble())
         val bytesTotal: Long = stat.blockSizeLong * stat.blockCountLong
-        dirStat.put("total", (bytesTotal / (1024f * 1024f)).toDouble())
+        dirStat.put("total", bytesTotal.toDouble())
         map.put(dir.name, dirStat)
       }
     }
