@@ -35,7 +35,7 @@ class DiskSpace2Plugin: FlutterPlugin, MethodCallHandler {
       "getAllDirectoryMap" -> if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
         result.success(getAllDirectoryMap())
       } else {
-        result.notImplemented()
+        result.success(JSONObject())
       }
       "getFreeDiskSpaceForPath" -> result.success(getFreeDiskSpaceForPath(call.argument<String>("path")!!))
       "getTotalDiskSpaceForPath" -> result.success(getFreeDiskSpaceForPath(call.argument<String>("path")!!))
