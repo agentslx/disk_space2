@@ -20,8 +20,10 @@ public class DiskSpace2Plugin: NSObject, FlutterPlugin {
             result(UIDevice.current.totalDiskSpaceInBytes)
         case "getAllDirectoryMap":
             result(FlutterMethodNotImplemented)
-        case "getFreeDiskSpaceForPath" -> result(UIDevice.current.freeDiskSpaceForPathInBytes(path: (call.arguments as? [String: String])!["path"]!))
-        case "getTotalDiskSpaceForPath" -> result(FlutterMethodNotImplemented)
+        case "getFreeDiskSpaceForPath":
+            result(UIDevice.current.freeDiskSpaceForPathInBytes(path: (call.arguments as? [String: String])!["path"]!))
+        case "getTotalDiskSpaceForPath":
+            result(FlutterMethodNotImplemented)
         default:
             result(FlutterMethodNotImplemented)
         }

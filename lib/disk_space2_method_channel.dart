@@ -13,26 +13,26 @@ class MethodChannelDiskSpace2 extends DiskSpace2Platform {
 
   @override
   Future<double?> get getFreeInternalDiskSpace async {
-    final double? freeDiskSpace = await _channel.invokeMethod('getFreeInternalDiskSpace');
-    return freeDiskSpace;
+    final dynamic freeDiskSpace = await _channel.invokeMethod('getFreeInternalDiskSpace');
+    return freeDiskSpace?.toDouble();
   }
 
   @override
   Future<double?> get getTotalInternalDiskSpace async {
-    final double? freeDiskSpace = await _channel.invokeMethod('getTotalInternalDiskSpace');
-    return freeDiskSpace;
+    final dynamic freeDiskSpace = await _channel.invokeMethod('getTotalInternalDiskSpace');
+    return freeDiskSpace?.toDouble();
   }
 
   @override
   Future<double?> get getFreeExternalDiskSpace async {
-    final double? totalDiskSpace = await _channel.invokeMethod('getFreeExternalDiskSpace');
-    return totalDiskSpace;
+    final dynamic totalDiskSpace = await _channel.invokeMethod('getFreeExternalDiskSpace');
+    return totalDiskSpace?.toDouble();
   }
 
   @override
   Future<double?> get getTotalExternalDiskSpace async {
-    final double? totalDiskSpace = await _channel.invokeMethod('getTotalExternalDiskSpace');
-    return totalDiskSpace;
+    final dynamic totalDiskSpace = await _channel.invokeMethod('getTotalExternalDiskSpace');
+    return totalDiskSpace?.toDouble();
   }
 
   @override
